@@ -1,0 +1,11 @@
+﻿################################################################################
+# Este archivo .gitignore ha sido creado automáticamente por Microsoft(R) Visual Studio.
+################################################################################
+
+/PayrollManagement.Back.Api/bin/Debug/net6.0
+/PayrollManagement.Back.Api/obj
+/PayrollManagement.Back.Business/bin/Debug/net6.0
+/PayrollManagement.Back.Infraestructure/bin/Debug/net6.0
+/.vs
+/PayrollManagement.Back.Business/obj
+/PayrollManagement.Back.Infraestructure/obj
