@@ -25,6 +25,12 @@ namespace PayrollManagement.Back.Infraestructure.Data
         public DbSet<UserActivity> UserActivity { get; set; }
         public DbSet<UserInfo> UserInfo { get; set; }
         public DbSet<Worker> Worker { get; set; }
+        public DbSet <PayrollType> PayrollType { get; set; }
+        public DbSet <SiesaConcept> SiesaConcept { get; set; }
+        public DbSet <ParametrizationNovelty> ParametrizationNovelty { get; set; }
+        public DbSet <PayrollNovelty> PayrollNovelty { get; set; }
+        public DbSet <PlainTextFile> PlainTextFile { get; set; }
+        public DbSet <PlainTextFileRecord> PlainTextFileRecord { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

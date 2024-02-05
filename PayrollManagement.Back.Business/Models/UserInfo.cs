@@ -30,5 +30,8 @@ namespace PayrollManagement.Back.Business.Models
         public Worker Worker { get; set; }
         public TimeSpan EntryHour { get; set; }
         public TimeSpan ExitHour { get; set; }
+        public long? PayrollTypeId { get; set; }
+        public PayrollType? PayrollType { get; set; }
+        public decimal? Salary { get; set; }
     }
 }

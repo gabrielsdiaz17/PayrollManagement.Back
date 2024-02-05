@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PayrollManagement.Back.Business.Enums
+{
+    
+    public enum TypeNovelty
+    {
+        Accrual = 1,//devengo
+        Deduction = 2,
+    }
+}

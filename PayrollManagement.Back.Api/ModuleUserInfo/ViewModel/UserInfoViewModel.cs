@@ -20,6 +20,8 @@ namespace PayrollManagement.Back.Api.ModuleUserInfo.ViewModel
         public long? WorkerId { get; set; }
         public TimeSpan EntryHour { get; set; }
         public TimeSpan ExitHour { get; set; }
+        public long? PayrollTypeId { get; set; }
+        public decimal? Salary { get; set; }
 
     }
 }
