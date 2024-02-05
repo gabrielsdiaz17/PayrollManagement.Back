@@ -1,11 +1,22 @@
+
+
+using PayrollManagement.Back.Api;
+using PayrollManagement.Back.Infraestructure;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+IConfiguration configuration = new ConfigurationBuilder()
+            .AddJsonFile("appsettings.json", optional: true)
+            .Build();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddCustomaizedDataStore(configuration);
+builder.Services.AddCustomizedRepository();
+builder.Services.AddCustomizedServices();
 
 var app = builder.Build();
 
@@ -15,8 +26,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-app.UseHttpsRedirection();
+app.UseCustomizedCors();
 
 app.UseAuthorization();
 
