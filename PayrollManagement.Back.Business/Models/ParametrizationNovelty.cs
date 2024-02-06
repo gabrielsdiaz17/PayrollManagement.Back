@@ -14,7 +14,6 @@ namespace PayrollManagement.Back.Business.Models
         public int NoveltyLength { get; set; }
         public int InitialPosition { get; set; }
         public int FinalPosition { get; set; }
-        public string Justification { get; set; }
         public Justification Justification { get; set; }
     }
 }
