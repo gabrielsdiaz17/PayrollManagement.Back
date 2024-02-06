@@ -8,7 +8,7 @@ namespace PayrollManagement.Back.Business.Models
 {
     public class PlainTextFileRecord: Auditable
     {
-        public int PlainTextFileId { get; set; }
+        public long PlainTextFileId { get; set; }
         public PlainTextFile PlainTextFile { get; set; }
         public string Record { get; set; }
         public bool ProcessedRecord { get; set; }
