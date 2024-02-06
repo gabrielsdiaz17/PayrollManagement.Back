@@ -15,4 +15,12 @@ namespace PayrollManagement.Back.Infraestructure.HelperModels
     {
         public long UserId { get; set; }
     }
+    public class DateGeneralFilter: UserActivityFilter
+    {
+
+    }
+    public class DateGeneralFilterWithUserInfo: DateGeneralFilter 
+    {
+        public long UserInfoId { get; set; }
+    }
 }

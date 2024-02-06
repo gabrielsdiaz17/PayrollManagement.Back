@@ -51,6 +51,11 @@ namespace PayrollManagement.Back.Api
             services.AddAutoMapper(typeof(CostCenterQueryMappingProfile));
             services.AddAutoMapper(typeof(LoginMappingProfile));
             services.AddAutoMapper(typeof(UserActivityWorkerUserInfoMappingProfile));
+            services.AddAutoMapper(typeof(PayrollNoveltyMappingProfile));
+            services.AddAutoMapper(typeof(PayrollNoveltyDetailViewModelMappingProfile));
+
+            
+
 
 
 

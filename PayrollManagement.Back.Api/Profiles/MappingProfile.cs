@@ -2,6 +2,7 @@
 using PayrollManagement.Back.Api.ModuleCity.ViewModel;
 using PayrollManagement.Back.Api.ModuleCompany.ViewModel;
 using PayrollManagement.Back.Api.ModuleCostCenter.ViewModel;
+using PayrollManagement.Back.Api.ModulePayrollNovelty.ViewModels;
 using PayrollManagement.Back.Api.ModuleRole.ViewModel;
 using PayrollManagement.Back.Api.ModuleUser.ViewModel;
 using PayrollManagement.Back.Api.ModuleUserActivity.ViewModel;
@@ -130,4 +131,21 @@ namespace PayrollManagement.Back.Api.Profiles
                 .ForMember(dest => dest.Worker, opt => opt.MapFrom(src => src.Worker));
         }
     }
+    public class PayrollNoveltyMappingProfile : Profile
+    {
+        public PayrollNoveltyMappingProfile()
+        {
+            CreateMap<PayrollNovelty, PayrollNoveltyViewModel > ().ReverseMap();
+        }
+    }
+    public class PayrollNoveltyDetailViewModelMappingProfile : Profile
+    {
+        public PayrollNoveltyDetailViewModelMappingProfile()
+        {
+            CreateMap<PayrollNovelty, PayrollNoveltyDetailViewModel>()
+                .ForMember(dest => dest.UserInfo, opt => opt.MapFrom(src => src.UserInfo))
+                .ForMember(dest => dest.UserActivity, opt=> opt.MapFrom(src =>src.UserActivity));
+        }
+    }
+    
 }
