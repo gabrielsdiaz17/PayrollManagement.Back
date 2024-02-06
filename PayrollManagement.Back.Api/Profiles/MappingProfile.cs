@@ -3,6 +3,7 @@ using PayrollManagement.Back.Api.ModuleCity.ViewModel;
 using PayrollManagement.Back.Api.ModuleCompany.ViewModel;
 using PayrollManagement.Back.Api.ModuleCostCenter.ViewModel;
 using PayrollManagement.Back.Api.ModulePayrollNovelty.ViewModels;
+using PayrollManagement.Back.Api.ModulePlainTextFile.ViewModels;
 using PayrollManagement.Back.Api.ModuleRole.ViewModel;
 using PayrollManagement.Back.Api.ModuleUser.ViewModel;
 using PayrollManagement.Back.Api.ModuleUserActivity.ViewModel;
@@ -147,5 +148,27 @@ namespace PayrollManagement.Back.Api.Profiles
                 .ForMember(dest => dest.UserActivity, opt=> opt.MapFrom(src =>src.UserActivity));
         }
     }
-    
+    public class PlainTextFileViewModelMappingProfile: Profile
+    {
+        public PlainTextFileViewModelMappingProfile()
+        {
+            CreateMap<PlainTextFile, PlainTextFileViewModel>().ReverseMap();
+        }
+    }
+    public class PlainTextFileWithRecordsViewModelMappingProfile: Profile
+    {
+        public PlainTextFileWithRecordsViewModelMappingProfile()
+        {
+            CreateMap<PlainTextFile, PlainTextFileWithRecordsViewModel>()
+                .ForMember(dest => dest.PlainTextFileRecords, opt => opt.MapFrom(src => src.PlainTextFileRecords));
+        }
+    }
+    public class PlainTextFileRecordViewModelMappingProfile: Profile
+    {
+        public PlainTextFileRecordViewModelMappingProfile()
+        {
+            CreateMap<PlainTextFileRecord, PlainTextFileRecordViewModel>().ReverseMap();
+        }
+    }
+
 }

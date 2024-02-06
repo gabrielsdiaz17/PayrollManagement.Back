@@ -53,11 +53,9 @@ namespace PayrollManagement.Back.Api
             services.AddAutoMapper(typeof(UserActivityWorkerUserInfoMappingProfile));
             services.AddAutoMapper(typeof(PayrollNoveltyMappingProfile));
             services.AddAutoMapper(typeof(PayrollNoveltyDetailViewModelMappingProfile));
-
-            
-
-
-
+            services.AddAutoMapper(typeof(PlainTextFileViewModelMappingProfile));
+            services.AddAutoMapper(typeof(PlainTextFileWithRecordsViewModelMappingProfile));
+            services.AddAutoMapper(typeof(PlainTextFileRecordViewModelMappingProfile));
 
             return services;
         }

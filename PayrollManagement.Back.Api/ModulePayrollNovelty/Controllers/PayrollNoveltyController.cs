@@ -101,12 +101,12 @@ namespace PayrollManagement.Back.Api.ModulePayrollNovelty.Controllers
         {
             try
             {
-                var userActivity = await _payrollNoveltyService.GetByIdAsync(id);
-                if (userActivity == null)
+                var payrollNovelty = await _payrollNoveltyService.GetByIdAsync(id);
+                if (payrollNovelty == null)
                     return NotFound("PayrollNovelty not found");
-                userActivity.IsActive = false;
-                userActivity.IsDeleted = true;
-                await _payrollNoveltyService.UpdateAsync(userActivity);
+                payrollNovelty.IsActive = false;
+                payrollNovelty.IsDeleted = true;
+                await _payrollNoveltyService.UpdateAsync(payrollNovelty);
                 return Accepted();
             }
             catch (Exception ex)
