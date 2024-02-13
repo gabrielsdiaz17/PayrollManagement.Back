@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+  payrollmanagement.back.api:
+    image: ${DOCKER_REGISTRY-}payrollmanagementbackapi
+    container_name: payrollmanagement.back.api
+    build:
+      context: .
+      dockerfile: PayrollManagement.Back.Api/Dockerfile
+    ports:
+      - "80"
+      - "443"
+  payrollmanagement.back.database:
+    image: postgres:latest
+    container_name: payrollmanagement.back.database
+    environment:
+        - POSTGRES_DB=PayrollManagement.Backend
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=123456
+    volumes:
+        - ./.cointainers/PayrollManagement.Backend-db:/var/lib/postgresql/data
+    ports:
+        - 5432:5432

@@ -1,7 +1,9 @@
 
 
+using Microsoft.EntityFrameworkCore;
 using PayrollManagement.Back.Api;
 using PayrollManagement.Back.Infraestructure;
+using PayrollManagement.Back.Infraestructure.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +27,15 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    using (var scope = app.Services.CreateScope())
+    {
+        var services = scope.ServiceProvider;
+        var dbContext = services.GetRequiredService<AppDbContext>();
+
+        // Apply any pending migrations
+        dbContext.Database.Migrate();
+    }
+
 }
 app.UseCustomizedCors();
 

@@ -9,3 +9,6 @@
 /.vs
 /PayrollManagement.Back.Business/obj
 /PayrollManagement.Back.Infraestructure/obj
+/.cointainers/PayrollManagement.Backend-db
+/bin/Debug
+/obj

@@ -24,6 +24,6 @@ namespace PayrollManagement.Back.Infraestructure
         {
             services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
             return services;
-        }
+        }        
     }
 }
