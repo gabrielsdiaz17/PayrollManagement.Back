@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   payrollmanagement.back.api:
-    image: ${DOCKER_REGISTRY-}payrollmanagementbackapi
+    image: payrollmanagementbackapi
     container_name: payrollmanagement.back.api
     build:
       context: .
