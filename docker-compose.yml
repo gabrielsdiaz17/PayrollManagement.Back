@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   payrollmanagement.back.api:
-    image: payrollmanagementbackapi
+    image: payrollmanagementbackapi:latest
     container_name: payrollmanagement.back.api
     build:
       context: .
