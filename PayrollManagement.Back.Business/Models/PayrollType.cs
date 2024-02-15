@@ -10,6 +10,6 @@ namespace PayrollManagement.Back.Business.Models
     {
         public string TypePayroll { get; set; }
         public string Nomenclature { get; set; }
-        public int DaysPayment { get; set; }
+        public string DaysPayment { get; set; }
     }
 }
