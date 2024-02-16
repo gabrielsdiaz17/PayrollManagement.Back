@@ -87,7 +87,7 @@ namespace PayrollManagement.Back.Api.ModuleParametrizationNovelty.Controller
                     return NotFound("Parametrization does not exist");
                 novelty.IsDeleted = true;
                 //Pending to see user that updates if its by jwt and identity
-                await _noveltyParametrizationService.UpdateAsync(worker);
+                await _noveltyParametrizationService.UpdateAsync(novelty);
                 return Accepted();
 
             }
