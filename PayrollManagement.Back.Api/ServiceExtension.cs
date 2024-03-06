@@ -4,10 +4,20 @@ using PayrollManagement.Back.Api.ModuleCompany.Interfaces;
 using PayrollManagement.Back.Api.ModuleCompany.Services;
 using PayrollManagement.Back.Api.ModuleCostCenter.Interfaces;
 using PayrollManagement.Back.Api.ModuleCostCenter.Services;
+using PayrollManagement.Back.Api.ModuleParametrizationNovelty.Interface;
+using PayrollManagement.Back.Api.ModuleParametrizationNovelty.Services;
+using PayrollManagement.Back.Api.ModulePayrollNovelty.Interfaces;
+using PayrollManagement.Back.Api.ModulePayrollNovelty.Services;
+using PayrollManagement.Back.Api.ModulePayrollType.Interface;
+using PayrollManagement.Back.Api.ModulePayrollType.Services;
+using PayrollManagement.Back.Api.ModulePlainTextFile.Interfaces;
+using PayrollManagement.Back.Api.ModulePlainTextFile.Services;
 using PayrollManagement.Back.Api.ModuleRegion.Interfaces;
 using PayrollManagement.Back.Api.ModuleRegion.Services;
 using PayrollManagement.Back.Api.ModuleRole.Interfaces;
 using PayrollManagement.Back.Api.ModuleRole.Services;
+using PayrollManagement.Back.Api.ModuleSiesaConcept.Interfaces;
+using PayrollManagement.Back.Api.ModuleSiesaConcept.Services;
 using PayrollManagement.Back.Api.ModuleUser.Interfaces;
 using PayrollManagement.Back.Api.ModuleUser.Services;
 using PayrollManagement.Back.Api.ModuleUserActivity.Interfaces;
@@ -34,6 +44,13 @@ namespace PayrollManagement.Back.Api
             services.AddTransient<IRoleService, RoleService>();
             services.AddTransient<IUserInfoService, UserInfoService>();
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<ISiesaConceptService, SiesaConceptService>();
+            services.AddTransient<INoveltyParametrizationService, NoveltyParametrizationService>();
+            services.AddTransient<IPayrollNoveltyService, PayrollNoveltyService>();
+            services.AddTransient<IPayrollTypeService, PayrollTypeService>();
+            services.AddTransient<IPlainTextFileService, PlainTextFileService>();
+            services.AddTransient<IPlainTextFileRecordService, PlainTextFileRecordService>();
+
             //Mapping
             services.AddAutoMapper(typeof(ServiceExtension));
             services.AddAutoMapper(typeof(CityMappingProfile));

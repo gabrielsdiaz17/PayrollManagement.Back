@@ -4,7 +4,7 @@ using PayrollManagement.Back.Business.Models;
 
 namespace PayrollManagement.Back.Api.ModulePayrollNovelty.ViewModels
 {
-    public class PayrollNoveltyViewModel
+    public class PayrollNoveltyViewModel: Auditable
     {
         public long SiesaConceptId { get; set; }
         public long UserInfoId { get; set; }
@@ -18,6 +18,7 @@ namespace PayrollManagement.Back.Api.ModulePayrollNovelty.ViewModels
     }
     public class PayrollNoveltyDetailViewModel
     {
+        public SiesaConcept SiesaConcept { get; set; }
         public UserInfoViewModel UserInfo { get; set; }
         public UserActivityViewModel? UserActivity { get; set; }
     }

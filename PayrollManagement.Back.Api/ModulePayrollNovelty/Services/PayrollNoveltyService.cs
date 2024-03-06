@@ -17,6 +17,7 @@ namespace PayrollManagement.Back.Api.ModulePayrollNovelty.Services
             var novelties  = await QueryNoTracking().Where(novelty => novelty.InitialDate >= dateFilter.StartDate && novelty.EndDate <= dateFilter.EndDate)
                 .Include(ui=> ui.UserInfo)
                 .Include(ua => ua.UserActivity)
+                .Include(si=> si.SiesaConcept)
                 .ToListAsync();
             return novelties;
         }
@@ -26,6 +27,7 @@ namespace PayrollManagement.Back.Api.ModulePayrollNovelty.Services
             var novelties = await QueryNoTracking().Where(novelty => novelty.InitialDate >= filter.StartDate && novelty.EndDate <= filter.EndDate && novelty.UserInfoId == filter.UserInfoId )
                 .Include(ui => ui.UserInfo)
                 .Include(ua => ua.UserActivity)
+                .Include(si=> si.SiesaConcept)
                 .ToListAsync();
             return novelties;
         }

@@ -49,7 +49,7 @@ namespace PayrollManagement.Back.Api.ModulePayrollNovelty.Controllers
                 var query = await _payrollNoveltyService.GetPayrollNoveltiesByDate(filter);
                 if (query.Any())
                 {
-                    var novelties = _mapper.Map<List<PayrollNoveltyViewModel>>(query);
+                    var novelties = _mapper.Map<List<PayrollNoveltyDetailViewModel>>(query);
                     return Ok(novelties);
                 }
                 return NotFound();
@@ -68,7 +68,7 @@ namespace PayrollManagement.Back.Api.ModulePayrollNovelty.Controllers
                 var query = await _payrollNoveltyService.GetPayrollNoveltiesByUserInfo(filter);
                 if (query.Any())
                 {
-                    var novelties = _mapper.Map<List<PayrollNoveltyViewModel>>(query);
+                    var novelties = _mapper.Map<List<PayrollNoveltyDetailViewModel>>(query);
                     return Ok(novelties);
                 }
                 return NotFound();
