@@ -5,5 +5,6 @@ namespace PayrollManagement.Back.Api.ModuleUserInfo.Interfaces
 {
     public interface IUserInfoService : IRepository<UserInfo>
     {
+        Task<long> GetUserInfoIdByDocument(string document);
     }
 }

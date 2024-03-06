@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PayrollManagement.Back.Api.ModulePayrollNovelty.Interfaces;
+using PayrollManagement.Back.Api.ModuleUserInfo.Interfaces;
 using PayrollManagement.Back.Business.Models;
 using PayrollManagement.Back.Infraestructure.HelperModels;
 using PayrollManagement.Back.Infraestructure.Repository;
@@ -8,8 +9,10 @@ namespace PayrollManagement.Back.Api.ModulePayrollNovelty.Services
 {
     public class PayrollNoveltyService : BaseRepository<PayrollNovelty>, IPayrollNoveltyService
     {
-        public PayrollNoveltyService(IRepository<PayrollNovelty> repository) : base(repository)
+        private readonly IUserInfoService _userInfoService;
+        public PayrollNoveltyService(IRepository<PayrollNovelty> repository, IUserInfoService userInfoService) : base(repository)
         {
+            _userInfoService = userInfoService;
         }
 
         public async Task<List<PayrollNovelty>> GetPayrollNoveltiesByDate(DateGeneralFilter dateFilter)
@@ -24,7 +27,8 @@ namespace PayrollManagement.Back.Api.ModulePayrollNovelty.Services
 
         public async Task<List<PayrollNovelty>> GetPayrollNoveltiesByUserInfo(DateGeneralFilterWithUserInfo filter)
         {
-            var novelties = await QueryNoTracking().Where(novelty => novelty.InitialDate >= filter.StartDate && novelty.EndDate <= filter.EndDate && novelty.UserInfoId == filter.UserInfoId )
+            var userInfoId = await _userInfoService.GetUserInfoIdByDocument(filter.DocumentNumber);
+            var novelties = await QueryNoTracking().Where(novelty => novelty.InitialDate >= filter.StartDate && novelty.EndDate <= filter.EndDate && novelty.UserInfoId == userInfoId )
                 .Include(ui => ui.UserInfo)
                 .Include(ua => ua.UserActivity)
                 .Include(si=> si.SiesaConcept)

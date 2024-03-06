@@ -21,6 +21,6 @@ namespace PayrollManagement.Back.Infraestructure.HelperModels
     }
     public class DateGeneralFilterWithUserInfo: DateGeneralFilter 
     {
-        public long UserInfoId { get; set; }
+        public string DocumentNumber { get; set; }
     }
 }
