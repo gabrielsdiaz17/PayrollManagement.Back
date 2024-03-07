@@ -11,9 +11,9 @@ namespace PayrollManagement.Back.Infraestructure.HelperModels
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
     }
-    public class UserActivitityFilterWithUser : UserActivityFilter
+    public class UserActivitityFilterWorkerId 
     {
-        public long UserId { get; set; }
+        public long WorkerId { get; set; }
     }
     public class DateGeneralFilter: UserActivityFilter
     {

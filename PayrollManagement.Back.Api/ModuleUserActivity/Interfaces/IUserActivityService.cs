@@ -7,6 +7,6 @@ namespace PayrollManagement.Back.Api.ModuleUserActivity.Interfaces
     public interface IUserActivityService : IRepository<UserActivity>
     {
         Task<List<UserActivity>> GetAcitivityByDates(UserActivityFilter filter);
-        Task<List<UserActivity>> GetActivityByDateAndUser(UserActivitityFilterWithUser activity);
+        Task<List<UserActivity>> GetActivityByWorkerId(UserActivitityFilterWorkerId activity);
     }
 }

@@ -58,11 +58,11 @@ namespace PayrollManagement.Back.Api.ModuleUserActivity.Controllers
             }
         }
         [HttpPost("getActivityByWorker")]
-        public async Task<IActionResult> GetActivityByWorker([FromBody] UserActivitityFilterWithUser userFilter)
+        public async Task<IActionResult> GetActivityByWorker([FromBody] UserActivitityFilterWorkerId userFilter)
         {
             try
             {
-                var query = await _userActivityService.GetActivityByDateAndUser(userFilter);
+                var query = await _userActivityService.GetActivityByWorkerId(userFilter);
                 if (query.Any())
                 {
                     var activitiesWorker = _mapper.Map<List<UserActivityViewModelDetails>>(query);

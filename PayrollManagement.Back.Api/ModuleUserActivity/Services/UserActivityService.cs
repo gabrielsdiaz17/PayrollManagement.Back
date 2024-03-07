@@ -22,10 +22,10 @@ namespace PayrollManagement.Back.Api.ModuleUserActivity.Services
             return userActivityBetweenDates;
         }
 
-        public async Task<List<UserActivity>> GetActivityByDateAndUser(UserActivitityFilterWithUser activity)
+        public async Task<List<UserActivity>> GetActivityByWorkerId(UserActivitityFilterWorkerId activity)
         {
             var userActivityForUser = await QueryNoTracking()
-                .Where(ac => ac.DateActivity >= activity.StartDate && ac.DateActivity <= activity.EndDate && ac.WorkerId == activity.UserId)
+                .Where(ac => ac.WorkerId == activity.WorkerId)
                 .Include(us => us.User)
                 .Include(w => w.Worker)
                 .ToListAsync();
