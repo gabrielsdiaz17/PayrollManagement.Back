@@ -8,6 +8,8 @@ namespace PayrollManagement.Back.Api.ModulePayrollNovelty.Interfaces
     {
         Task <List<PayrollNovelty>> GetPayrollNoveltiesByDate(DateGeneralFilter dateFilter);
         Task<List<PayrollNovelty>> GetPayrollNoveltiesByUserInfo(DateGeneralFilterWithUserInfo filter);
+        Task<List<PayrollNovelty>> GetPayrollNoveltiesNotProcessed();
+
 
     }
 }

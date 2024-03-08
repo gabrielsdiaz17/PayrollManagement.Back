@@ -17,7 +17,8 @@ namespace PayrollManagement.Back.Api.ModulePayrollNovelty.Services
 
         public async Task<List<PayrollNovelty>> GetPayrollNoveltiesByDate(DateGeneralFilter dateFilter)
         {
-            var novelties  = await QueryNoTracking().Where(novelty => novelty.InitialDate >= dateFilter.StartDate && novelty.EndDate <= dateFilter.EndDate)
+            var novelties  = await QueryNoTracking().Where(novelty => !novelty.ProcessedInFile &&
+                novelty.InitialDate >= dateFilter.StartDate && novelty.EndDate <= dateFilter.EndDate)
                 .Include(ui=> ui.UserInfo)
                 .Include(ua => ua.UserActivity)
                 .Include(si=> si.SiesaConcept)
@@ -28,10 +29,21 @@ namespace PayrollManagement.Back.Api.ModulePayrollNovelty.Services
         public async Task<List<PayrollNovelty>> GetPayrollNoveltiesByUserInfo(DateGeneralFilterWithUserInfo filter)
         {
             var userInfoId = await _userInfoService.GetUserInfoIdByDocument(filter.DocumentNumber);
-            var novelties = await QueryNoTracking().Where(novelty => novelty.InitialDate >= filter.StartDate && novelty.EndDate <= filter.EndDate && novelty.UserInfoId == userInfoId )
+            var novelties = await QueryNoTracking().Where(novelty => 
+                novelty.InitialDate >= filter.StartDate && novelty.EndDate <= filter.EndDate && novelty.UserInfoId == userInfoId )
                 .Include(ui => ui.UserInfo)
                 .Include(ua => ua.UserActivity)
                 .Include(si=> si.SiesaConcept)
+                .ToListAsync();
+            return novelties;
+        }
+
+        public async Task<List<PayrollNovelty>> GetPayrollNoveltiesNotProcessed()
+        {
+            var novelties = await QueryNoTracking().Where(novelty => !novelty.ProcessedInFile)
+                .Include(ui => ui.UserInfo)
+                .Include(ua => ua.UserActivity)
+                .Include(si => si.SiesaConcept)
                 .ToListAsync();
             return novelties;
         }

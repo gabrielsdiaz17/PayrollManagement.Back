@@ -20,5 +20,7 @@ namespace PayrollManagement.Back.Business.Models
         public int DaysDurationNotWorking { get; set; }
         public int Duration { get; set; }
         public decimal ValueNovelty { get; set; }
+        public bool ProcessedInFile { get; set; }
+
     }
 }

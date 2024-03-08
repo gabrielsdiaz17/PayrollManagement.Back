@@ -9,6 +9,6 @@ namespace PayrollManagement.Back.Api.ModulePlainTextFile.ViewModels
     }
     public class PlainTextFileWithRecordsViewModel: PlainTextFileViewModel
     {
-        public virtual IList<PlainTextFileRecord> PlainTextFileRecords { get; set; }
+        public virtual IList<PlainTextFileRecordViewModel> PlainTextFileRecords { get; set; }
     }
 }

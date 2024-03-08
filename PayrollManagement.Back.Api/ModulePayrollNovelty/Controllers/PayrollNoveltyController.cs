@@ -41,6 +41,24 @@ namespace PayrollManagement.Back.Api.ModulePayrollNovelty.Controllers
                 return StatusCode(500, new { message = ex.Message.ToString() });
             }
         }
+        [HttpGet]
+        public async Task<IActionResult> GetallNovelties()
+        {
+            try
+            {
+                var query = await _payrollNoveltyService.GetPayrollNoveltiesNotProcessed();
+                if (query.Any())
+                {
+                    var novelties = _mapper.Map<List<PayrollNoveltyDetailViewModel>>(query);
+                    return Ok(novelties);
+                }
+                return NotFound();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = ex.Message.ToString() });
+            }
+        }
         [HttpPost("getNoveltiesByDate")]
         public async Task <IActionResult> GetNoveltiesByDate([FromBody] DateGeneralFilter filter)
         {
