@@ -12,7 +12,7 @@ namespace PayrollManagement.Back.Api.ModuleCostCenter.Services
         }
         public async Task<List<CostCenter>> GetCostCenterWithUser()
         {
-            var costCenterWithUser = await QueryNoTracking().Include(u => u.User).ToListAsync();
+            var costCenterWithUser = await QueryNoTracking().Where(cost=> cost.IsActive).Include(u => u.User).ToListAsync();
             return costCenterWithUser;
         }
     }

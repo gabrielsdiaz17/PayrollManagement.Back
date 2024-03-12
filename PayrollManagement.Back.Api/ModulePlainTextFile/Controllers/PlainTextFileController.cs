@@ -64,6 +64,8 @@ namespace PayrollManagement.Back.Api.ModulePlainTextFile.Controllers
             try
             {
                 var plainText = _mapper.Map<PlainTextFile>(model);
+                DateTime utcUpload = DateTime.SpecifyKind(model.DateUpload, DateTimeKind.Utc);
+                plainText.DateUpload = utcUpload;
                 await _plainTextFileService.AddAsync(plainText);
                 var plainTextFileId = plainText.Id;
                 return Ok(new { Id = plainTextFileId });

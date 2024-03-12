@@ -17,10 +17,10 @@ namespace PayrollManagement.Back.Api.ModulePayrollNovelty.ViewModels
         public decimal ValueNovelty { get; set; }
         public bool ProcessedInFile { get; set; }
     }
-    public class PayrollNoveltyDetailViewModel
+    public class PayrollNoveltyDetailViewModel: PayrollNoveltyViewModel
     {
         public SiesaConcept SiesaConcept { get; set; }
         public UserInfoViewModel UserInfo { get; set; }
-        public UserActivityViewModel? UserActivity { get; set; }
+        public UserActivityViewModelDetails? UserActivity { get; set; }
     }
 }

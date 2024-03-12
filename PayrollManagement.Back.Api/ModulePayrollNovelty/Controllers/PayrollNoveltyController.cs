@@ -30,6 +30,18 @@ namespace PayrollManagement.Back.Api.ModulePayrollNovelty.Controllers
                 if(ModelState.IsValid)
                 {
                     var noveltyEntity = _mapper.Map<PayrollNovelty>(novelty);
+                    DateTime utcNovelty = DateTime.SpecifyKind(novelty.NoveltyDate, DateTimeKind.Utc);
+                    DateTime utcInitial = DateTime.SpecifyKind(novelty.InitialDate, DateTimeKind.Utc);
+                    DateTime utcEnd = DateTime.SpecifyKind(novelty.EndDate, DateTimeKind.Utc);
+
+                    noveltyEntity.NoveltyDate = utcNovelty;
+                    noveltyEntity.InitialDate = utcInitial;
+                    noveltyEntity.EndDate = utcEnd;
+                    if (noveltyEntity.UserActivityId == 0)
+                    {
+                        noveltyEntity.UserActivityId = null;
+                    }
+
                     await _payrollNoveltyService.AddAsync(noveltyEntity);
                     var payrollNoveltyId = noveltyEntity.Id;
                     return Ok(new { Id = payrollNoveltyId });

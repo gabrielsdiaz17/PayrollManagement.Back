@@ -144,6 +144,7 @@ namespace PayrollManagement.Back.Api.Profiles
         public PayrollNoveltyDetailViewModelMappingProfile()
         {
             CreateMap<PayrollNovelty, PayrollNoveltyDetailViewModel>()
+                .ForMember(dest=> dest.SiesaConcept, opt=> opt.MapFrom(src => src.SiesaConcept))
                 .ForMember(dest => dest.UserInfo, opt => opt.MapFrom(src => src.UserInfo))
                 .ForMember(dest => dest.UserActivity, opt=> opt.MapFrom(src =>src.UserActivity));
         }

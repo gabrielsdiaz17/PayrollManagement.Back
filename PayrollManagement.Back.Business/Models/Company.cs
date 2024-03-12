@@ -12,7 +12,6 @@ namespace PayrollManagement.Back.Business.Models
         public string Document { get; set; }
         public virtual IList<User> Users { get; set; }
         public virtual IList<CostCenter> CostCenters { get; set; }
-        public virtual IList<Worker> Workers { get; set; }
         public long CityId { get; set; }
         public City City { get; set; }
 
