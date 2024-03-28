@@ -17,5 +17,7 @@ namespace PayrollManagement.Back.Business.Models
         public Company Company { get; set; }
         public virtual IList<Worker> Workers { get; set; }
         public long ParentId { get; set; }
+        public TimeSpan EntryHourCC { get; set; }
+        public TimeSpan ExitHourCC { get; set; }
     }
 }

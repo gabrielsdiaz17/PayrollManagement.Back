@@ -10,6 +10,8 @@ namespace PayrollManagement.Back.Api.ModuleCostCenter.ViewModel
         public long UserId { get; set; }
         public long CompanyId { get; set; }
         public long ParentId { get; set; }
+        public TimeSpan EntryHourCC { get; set; }
+        public TimeSpan ExitHourCC { get; set; }
 
     }
     public class CostCenterQueryViewModel : CostCenterViewModel
