@@ -8,5 +8,6 @@ namespace PayrollManagement.Back.Api.ModuleUser.Interfaces
     {
         Task<List<User>> GetUserWithUserInfo();
         Task<User> GetUserLogin(UserLogin login);
+        Task<User> GetUserByCostCenter(long costCenterId);
     }
 }

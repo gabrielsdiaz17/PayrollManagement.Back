@@ -8,5 +8,7 @@ namespace PayrollManagement.Back.Api.ModuleUserActivity.Interfaces
     {
         Task<List<UserActivity>> GetAcitivityByDates(UserActivityFilter filter);
         Task<List<UserActivity>> GetActivityByWorkerId(UserActivitityFilterWorkerId activity);
+
+        Task<List<UserActivity>> GetActivityByCostCenter(CostCenterActivityFilter filter);
     }
 }

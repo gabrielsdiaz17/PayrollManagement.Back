@@ -23,4 +23,8 @@ namespace PayrollManagement.Back.Infraestructure.HelperModels
     {
         public string DocumentNumber { get; set; }
     }
+    public class CostCenterActivityFilter : UserActivityFilter 
+    {
+        public long CostCenterId { get; set; }
+    }
 }

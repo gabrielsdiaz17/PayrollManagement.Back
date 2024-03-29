@@ -93,6 +93,25 @@ namespace PayrollManagement.Back.Api.ModuleUserActivity.Controllers
                 return StatusCode(500, new { message = ex.Message.ToString() });
             }
         }
+        [HttpPost("getActivityByCostCenter")]
+        public async Task<IActionResult> GetActivityByCostCenter([FromBody] CostCenterActivityFilter filter)
+        {
+            try
+            {
+                var query = await _userActivityService.GetActivityByCostCenter(filter);
+                if (query.Any())
+                {
+                    var userActivities = _mapper.Map<List<UserActivityViewModelDetails>>(query);
+                    return Ok(userActivities);
+                }
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = ex.Message.ToString() });
+            }
+        }
+
         [HttpPut]
         public async Task<IActionResult> Update([FromBody] UserActivityViewModel userActivityUpdate)
         {

@@ -45,10 +45,10 @@ namespace PayrollManagement.Back.Api.ModuleCostCenter.Controllers
         {
             try
             {
-                var query = await _costCenterService.GetCostCenterWithUser();
+                var query = await _costCenterService.GetAllAsync();
                 if (query.Any())
                 {
-                    var costCenters = _mapper.Map<List<CostCenterQueryViewModel>>(query);
+                    var costCenters = _mapper.Map<List<CostCenterViewModel>>(query);
                     return Ok(costCenters);
                 }
                 return NotFound();
@@ -97,25 +97,6 @@ namespace PayrollManagement.Back.Api.ModuleCostCenter.Controllers
             }
 
         }
-        [HttpGet("costCentersBySupervisor/{id}")]
-        public async Task<IActionResult> CostCentersBySupervisor(long id)
-        {
-            try
-            {
-                var query = await _costCenterService.GetCostCenterWithUser();
-                if (query.Any())
-                {
-                    var costCenters = _mapper.Map<List<CostCenter>>(query);
-                    costCenters = query.Where(costCenter => costCenter.UserId == id).ToList();
-                    return Ok(costCenters);
-                }
-                return BadRequest();
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { message = ex.Message.ToString() });
-            }
-
-        }
+        
     }
 }

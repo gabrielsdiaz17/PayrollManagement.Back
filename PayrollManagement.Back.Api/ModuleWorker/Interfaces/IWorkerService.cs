@@ -7,5 +7,6 @@ namespace PayrollManagement.Back.Api.ModuleWorker.Interfaces
     {
         Task<List<Worker>> GetWorkerWithUserInfo();
         Task<List<Worker>> GetUserActivityByWorker(long workerId);
+        Task<List<Worker>> WorkerByCostCenter(long costCenterId);
     }
 }

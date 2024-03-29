@@ -59,9 +59,9 @@ namespace PayrollManagement.Back.Api.ModuleWorker.Controllers
                 return StatusCode(500, new { message = ex.Message.ToString() });
             }
         }
-        [HttpGet("userActivityByWorker/{id}")]
+        [HttpGet("getUserActivityByWorker/{id}")]
 
-        public async Task<IActionResult> WorkerById(long id)
+        public async Task<IActionResult> GetUserActivityByWorker(long id)
         {
             try
             {
@@ -78,6 +78,23 @@ namespace PayrollManagement.Back.Api.ModuleWorker.Controllers
             {
                 return StatusCode(500, new { message = ex.Message.ToString() });
             }
+        }
+        [HttpGet("workerByCostCenter/{costCenterId}")]
+        public async Task<IActionResult> WorkerByCostCenter(long costCenterId)
+        {
+            try
+            {
+                
+                var workers = await _workerService.WorkerByCostCenter(costCenterId);
+                if (workers.Count > 0)
+                    return Ok(workers);
+                return NotFound();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = ex.Message.ToString() });
+            }
+
         }
         [HttpPut]
         public async Task<IActionResult> Update([FromBody] WorkerViewModel workerVM)
@@ -118,22 +135,6 @@ namespace PayrollManagement.Back.Api.ModuleWorker.Controllers
                 return StatusCode(500, new { message = ex.Message.ToString() });
             }
         }
-        [HttpGet("workerByCostCenter/{id}")]
-        public async Task<IActionResult> WorkerByCostCenter(long id)
-        {
-            try
-            {
-                var query = await _workerService.GetAllAsync();
-                var workers = query.Where(worker => worker.CostCenterId == id).ToList();
-                if (workers.Any())
-                    return Ok(workers);
-                return NotFound();
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { message = ex.Message.ToString() });
-            }
-
-        }
+        
     }
 }

@@ -26,5 +26,10 @@ namespace PayrollManagement.Back.Api.ModuleWorker.Services
                 .ToListAsync();
             return workersWithUserInfo;
         }
+        public async Task<List<Worker>> WorkerByCostCenter(long costCenterId)
+        {
+            var workersbyCostCenterId = await QueryNoTracking().Where(worker => worker.CostCenterId == costCenterId).ToListAsync();
+            return workersbyCostCenterId;
+        }
     }
 }

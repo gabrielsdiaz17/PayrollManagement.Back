@@ -11,13 +11,13 @@ namespace PayrollManagement.Back.Business.Models
         public string Name { get; set; }
         //[ForeignKey("User")]
         public string CostCenterCode { get; set; }
-        public long? UserId { get; set; }
-        public User User { get; set; }
         public long CompanyId { get; set; }
         public Company Company { get; set; }
         public virtual IList<Worker> Workers { get; set; }
         public long ParentId { get; set; }
         public TimeSpan EntryHourCC { get; set; }
         public TimeSpan ExitHourCC { get; set; }
+        public TimeSpan EntryHourCCSaturday { get; set; }
+        public TimeSpan ExitHourCCSaturday { get; set; }
     }
 }

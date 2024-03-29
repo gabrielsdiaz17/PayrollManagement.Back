@@ -10,5 +10,7 @@ namespace PayrollManagement.Back.Business.Enums
     {
         Entry = 1,
         Exit = 2,
+        EntryOvertime = 3,
+        ExitOvertime = 4
     }
 }

@@ -108,14 +108,7 @@ namespace PayrollManagement.Back.Api.Profiles
         }
     }
 
-    public class CostCenterQueryMappingProfile : Profile
-    {
-        public CostCenterQueryMappingProfile()
-        {
-            CreateMap<CostCenter, CostCenterQueryViewModel>().
-                ForMember(dest => dest.User, opt => opt.MapFrom(src => src.User));
-        }
-    }
+    
     public class LoginMappingProfile : Profile
     {
         public LoginMappingProfile()

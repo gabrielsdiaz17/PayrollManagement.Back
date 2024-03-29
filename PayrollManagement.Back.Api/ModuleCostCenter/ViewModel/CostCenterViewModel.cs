@@ -14,8 +14,5 @@ namespace PayrollManagement.Back.Api.ModuleCostCenter.ViewModel
         public TimeSpan ExitHourCC { get; set; }
 
     }
-    public class CostCenterQueryViewModel : CostCenterViewModel
-    {
-        public UserViewModel User { get; set; }
-    }
+    
 }
