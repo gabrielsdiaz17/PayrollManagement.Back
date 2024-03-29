@@ -16,6 +16,8 @@ using PayrollManagement.Back.Api.ModuleRegion.Interfaces;
 using PayrollManagement.Back.Api.ModuleRegion.Services;
 using PayrollManagement.Back.Api.ModuleRole.Interfaces;
 using PayrollManagement.Back.Api.ModuleRole.Services;
+using PayrollManagement.Back.Api.ModuleScheduleParametrization.Interfaces;
+using PayrollManagement.Back.Api.ModuleScheduleParametrization.Services;
 using PayrollManagement.Back.Api.ModuleSiesaConcept.Interfaces;
 using PayrollManagement.Back.Api.ModuleSiesaConcept.Services;
 using PayrollManagement.Back.Api.ModuleUser.Interfaces;
@@ -50,6 +52,8 @@ namespace PayrollManagement.Back.Api
             services.AddTransient<IPayrollTypeService, PayrollTypeService>();
             services.AddTransient<IPlainTextFileService, PlainTextFileService>();
             services.AddTransient<IPlainTextFileRecordService, PlainTextFileRecordService>();
+            services.AddTransient<IScheduleParametrizationService, ScheduleParametrizationService>();
+
 
             //Mapping
             services.AddAutoMapper(typeof(ServiceExtension));

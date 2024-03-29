@@ -31,6 +31,9 @@ namespace PayrollManagement.Back.Infraestructure.Data
         public DbSet <PayrollNovelty> PayrollNovelty { get; set; }
         public DbSet <PlainTextFile> PlainTextFile { get; set; }
         public DbSet <PlainTextFileRecord> PlainTextFileRecord { get; set; }
+        public DbSet<ScheduleParametrization> ScheduleParametrization { get; set; }
+
+
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
